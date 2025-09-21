@@ -1,0 +1,14 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+
+Git Rules - 
+
+1) Never do any git related operation or tool call until I specifically ask
+
+Project rules - 
+
+1) Always run the project on 8000 after you finish the functionality so that It can be tested

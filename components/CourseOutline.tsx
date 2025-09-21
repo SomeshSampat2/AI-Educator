@@ -10,7 +10,7 @@ interface CourseOutlineProps {
 const CourseOutline: React.FC<CourseOutlineProps> = ({ topics, currentIndex, onSelect }) => {
   return (
     <aside className="w-full md:w-80 lg:w-96 bg-gray-950 p-6 flex-shrink-0 border-r border-gray-700 flex flex-col">
-      <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 mb-6">
+      <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6">
         Learning Path
       </h2>
 
@@ -22,7 +22,7 @@ const CourseOutline: React.FC<CourseOutlineProps> = ({ topics, currentIndex, onS
             
             let stateClasses = 'border-gray-700 text-gray-400 hover:bg-gray-800/50 hover:border-gray-500';
             if (isCurrent) {
-              stateClasses = 'border-amber-500 text-white bg-amber-500/10';
+              stateClasses = 'border-emerald-500 text-white bg-emerald-500/10';
             } else if (isCompleted) {
               stateClasses = 'border-lime-600 text-slate-300 bg-lime-500/10 hover:bg-lime-500/20';
             }

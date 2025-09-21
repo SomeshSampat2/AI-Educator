@@ -12,6 +12,7 @@ export interface LearningTopic {
   title: string;
   description: string;
   Icon: React.FC<{ className?: string }>;
+  imageUrl: string;
 }
 
 export interface TopicCategory {

@@ -125,7 +125,7 @@ const LearningSession: React.FC<LearningSessionProps> = ({ topic, onExit }) => {
   return (
     <div className="flex flex-col h-screen bg-black text-slate-100">
       <header className="w-full bg-gray-900 p-4 flex-shrink-0 border-b border-gray-700 flex items-center justify-between">
-         <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+         <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
             {topic.title}
         </h2>
         <button

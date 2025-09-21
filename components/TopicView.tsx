@@ -68,7 +68,7 @@ const TopicView: React.FC<TopicViewProps> = (props) => {
   return (
     <div className="animate-fade-in">
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-5xl font-extrabold text-amber-400">{content.title}</h1>
+        <h1 className="text-5xl font-extrabold text-violet-400">{content.title}</h1>
         <button 
             onClick={handleToggleSpeech} 
             className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
@@ -79,20 +79,20 @@ const TopicView: React.FC<TopicViewProps> = (props) => {
       </div>
 
       <div 
-        className="prose prose-invert prose-xl max-w-none text-slate-200 [&>p]:leading-relaxed [&>ul]:my-4 [&>h3]:text-amber-300" 
+        className="prose prose-invert prose-xl max-w-none text-slate-200 [&>p]:leading-relaxed [&>ul]:my-4 [&>h3]:text-blue-300" 
         dangerouslySetInnerHTML={{ __html: parsedExplanation }} 
       />
       
       {isLatestTopic && (
         <div className="mt-12 mb-8 border-t-2 border-gray-700 pt-8 animate-fade-in">
-            <h3 className="text-2xl font-bold text-amber-400 mb-4">Where to next? 🤔</h3>
+            <h3 className="text-2xl font-bold text-emerald-400 mb-4">Where to next? 🤔</h3>
             <p className="text-gray-300 mb-4">Click a suggestion or ask your own question to continue!</p>
             <div className="flex flex-wrap gap-3 mb-6">
                 {content.followUpSuggestions.map(suggestion => (
                     <button
                         key={suggestion}
                         onClick={() => onFollowUpSelect(suggestion)}
-                        className="px-4 py-2 bg-gray-800 text-slate-200 rounded-full hover:bg-fuchsia-600 hover:text-white transition-all duration-300 transform hover:scale-105"
+                        className="px-4 py-2 bg-gray-800 text-slate-200 rounded-full hover:bg-emerald-600 hover:text-white transition-all duration-300 transform hover:scale-105"
                     >
                         {suggestion}
                     </button>
@@ -105,9 +105,9 @@ const TopicView: React.FC<TopicViewProps> = (props) => {
                     value={customQuery}
                     onChange={(e) => setCustomQuery(e.target.value)}
                     placeholder="Ask a question or tell me what to learn..."
-                    className="flex-1 p-4 bg-gray-800 border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:border-transparent transition"
+                    className="flex-1 p-4 bg-gray-800 border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
                 />
-                <button type="submit" className="bg-lime-600 hover:bg-lime-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
                     Go!
                 </button>
             </form>

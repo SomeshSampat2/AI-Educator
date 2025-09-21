@@ -73,9 +73,6 @@ const HomePage: React.FC<HomePageProps> = ({ onTopicSelect }) => {
             </div>
         </div>
       </main>
-      <footer className="text-center mt-16 text-gray-500">
-        <p>Powered by Google Gemini</p>
-      </footer>
     </div>
   );
 };

@@ -68,7 +68,7 @@ const TopicView: React.FC<TopicViewProps> = (props) => {
   return (
     <div className="animate-fade-in">
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-5xl font-extrabold text-violet-400">{content.title}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-violet-400">{content.title}</h1>
         <button 
             onClick={handleToggleSpeech} 
             className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
@@ -79,7 +79,7 @@ const TopicView: React.FC<TopicViewProps> = (props) => {
       </div>
 
       <div 
-        className="prose prose-invert prose-xl max-w-none text-slate-200 [&>p]:leading-relaxed [&>ul]:my-4 [&>h3]:text-blue-300" 
+        className="prose prose-invert prose-xl max-w-none text-slate-200 [&>p]:leading-relaxed [&>ul]:my-4 [&>h3]:text-blue-400 [&>h3]:text-2xl [&>h3]:font-bold [&>h3]:mt-8 [&>strong]:text-cyan-400 [&>b]:text-cyan-400" 
         dangerouslySetInnerHTML={{ __html: parsedExplanation }} 
       />
       

@@ -26,9 +26,9 @@ const HomePage: React.FC<HomePageProps> = ({ onTopicSelect }) => {
 
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-16">
-      <header className="text-center mb-12">
-        <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 mb-2">
+    <div className="container mx-auto px-4 py-12 md:py-20">
+      <header className="text-center mb-16">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 leading-relaxed py-4">
           Agent-E
         </h1>
         <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
@@ -47,9 +47,9 @@ const HomePage: React.FC<HomePageProps> = ({ onTopicSelect }) => {
                     value={customTopic}
                     onChange={(e) => setCustomTopic(e.target.value)}
                     placeholder="e.g., How do Neural Networks work?, The History of the Roman Empire, What is Quantum Entanglement?..."
-                    className="w-full p-4 bg-gray-900 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:border-transparent transition text-lg"
+                    className="w-full p-4 bg-gray-900 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition text-lg"
                 />
-                <button type="submit" className="bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg w-full md:w-auto">
+                <button type="submit" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg w-full md:w-auto">
                     Start Learning
                 </button>
             </form>

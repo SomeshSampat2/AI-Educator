@@ -39,7 +39,7 @@ export const generateTopic = async (
         const historyPrompt = history.length > 0 ? `They have already covered the following topics in this session: ${history.join(', ')}.` : "This is their first topic.";
 
         const prompt = `
-        You are an AI Educator creating a dynamic, chapter-by-chapter learning path. Your goal is to make learning incredibly engaging, colorful, and fun!
+        You are Agent-E creating a dynamic, chapter-by-chapter learning path. Your goal is to make learning incredibly engaging, colorful, and fun!
         The user's main subject is "${mainTopic.title}".
         Their self-assessed knowledge level is: "${level}".
         ${historyPrompt}

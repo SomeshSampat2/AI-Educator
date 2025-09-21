@@ -28,7 +28,7 @@ const HomePage: React.FC<HomePageProps> = ({ onTopicSelect }) => {
   return (
     <div className="container mx-auto px-4 py-8 md:py-16">
       <header className="text-center mb-12">
-        <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 mb-2">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-500 mb-4 leading-tight">
           Agent-E
         </h1>
         <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">

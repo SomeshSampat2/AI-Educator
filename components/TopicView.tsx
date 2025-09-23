@@ -1,5 +1,6 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { type TopicContentData } from '../types';
+import FormattedContent from './FormattedContent';
 
 interface TopicViewProps {
   content: TopicContentData | null;
@@ -52,11 +53,6 @@ const TopicView: React.FC<TopicViewProps> = (props) => {
     }
   };
 
-  const parsedExplanation = useMemo(() => {
-    if (!content?.explanation) return "";
-    return marked.parse(content.explanation);
-  }, [content?.explanation]);
-
   if (!content) {
     return (
         <div className="flex items-center justify-center h-full">
@@ -78,9 +74,9 @@ const TopicView: React.FC<TopicViewProps> = (props) => {
         </button>
       </div>
 
-      <div 
-        className="prose prose-invert prose-xl max-w-none text-slate-200 [&>p]:leading-relaxed [&>ul]:my-4 [&>h3]:text-blue-300" 
-        dangerouslySetInnerHTML={{ __html: parsedExplanation }} 
+      <FormattedContent
+        content={content.explanation}
+        className="prose prose-invert prose-xl max-w-none text-slate-200"
       />
       
       {isLatestTopic && (

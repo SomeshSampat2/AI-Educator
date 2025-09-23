@@ -49,6 +49,7 @@ export const generateTopic = async (
         Your response must include four parts:
         1.  **title**: Create a clear and engaging title for this specific chapter. It should reflect "${requestedTopicTitle}".
         2.  **explanation**: Provide a clear, well-structured explanation.
+            - **Make it very detailed and comprehensive**: Include multiple examples, practical applications, and thorough coverage of the topic.
             - **Format using rich Markdown**: use headings, bold, italics, and bulleted lists.
             - **USE LOTS OF EMOJIS!** 🤩 Sprinkle in a generous amount of relevant emojis to make the content lively (e.g., 💡, 🧠, ✨, ✅, 🚀, 🎉).
             - **Weave simple analogies and fun facts directly into the main explanation.** They should feel like a natural part of the conversation.
@@ -68,7 +69,7 @@ export const generateTopic = async (
             config: {
                 responseMimeType: "application/json",
                 responseSchema: topicContentSchema,
-                temperature: 0.7,
+                temperature: 0.1,
             },
         });
 

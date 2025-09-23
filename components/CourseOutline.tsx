@@ -9,8 +9,8 @@ interface CourseOutlineProps {
 
 const CourseOutline: React.FC<CourseOutlineProps> = ({ topics, currentIndex, onSelect }) => {
   return (
-    <aside className="w-full md:w-80 lg:w-96 bg-gray-950 p-6 flex-shrink-0 border-r border-gray-700 flex flex-col">
-      <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6">
+    <aside className="w-full bg-gray-950 p-4 md:p-6 flex-shrink-0 border-r border-gray-700 flex flex-col">
+      <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-4 md:mb-6">
         Learning Path
       </h2>
 
@@ -29,12 +29,12 @@ const CourseOutline: React.FC<CourseOutlineProps> = ({ topics, currentIndex, onS
 
             return (
               <li key={topic.title + index}>
-                <button 
+                <button
                   onClick={() => onSelect(index)}
-                  className={`w-full flex items-start text-left p-3 rounded-lg border-l-4 transition-all duration-300 ${stateClasses}`}
+                  className={`w-full flex items-start text-left p-2 md:p-3 rounded-lg border-l-4 transition-all duration-300 text-sm md:text-base ${stateClasses}`}
                 >
-                  <div className="text-lg font-bold mr-4">{index + 1}</div>
-                  <span className="flex-1 font-semibold">{topic.title}</span>
+                  <div className="text-base md:text-lg font-bold mr-2 md:mr-4 flex-shrink-0">{index + 1}</div>
+                  <span className="flex-1 font-semibold leading-tight">{topic.title}</span>
                 </button>
               </li>
             );

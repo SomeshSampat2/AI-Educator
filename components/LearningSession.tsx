@@ -18,6 +18,7 @@ const LearningSession: React.FC<LearningSessionProps> = ({ topic, onExit }) => {
   const [viewedTopicIndex, setViewedTopicIndex] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [loadingFact, setLoadingFact] = useState<string | null>(null);
+  const [isCourseOutlineVisible, setIsCourseOutlineVisible] = useState(false);
 
   const currentTopicForView = topicHistory[viewedTopicIndex] || null;
 
@@ -82,6 +83,10 @@ const LearningSession: React.FC<LearningSessionProps> = ({ topic, onExit }) => {
     setError(null);
     setLoadingFact(null);
   };
+
+  const toggleCourseOutline = () => {
+    setIsCourseOutlineVisible(!isCourseOutlineVisible);
+  };
   
   const renderContent = () => {
     if (sessionState === 'error' || sessionState === 'selecting_level' || sessionState === 'generating_topic') {
@@ -101,13 +106,48 @@ const LearningSession: React.FC<LearningSessionProps> = ({ topic, onExit }) => {
     }
 
     return (
-        <div className="flex flex-1 overflow-hidden">
-            <CourseOutline 
-                topics={topicHistory}
-                currentIndex={viewedTopicIndex}
-                onSelect={handleSelectTopic}
-            />
-            <div className="flex-1 p-4 md:p-8 overflow-y-auto">
+        <div className="flex flex-1 overflow-hidden relative">
+            {/* Mobile overlay for course outline */}
+            {isCourseOutlineVisible && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden" onClick={toggleCourseOutline} />
+            )}
+
+            {/* Course Outline - responsive positioning */}
+            <div className={`
+                ${isCourseOutlineVisible ? 'translate-x-0' : '-translate-x-full'}
+                md:translate-x-0
+                fixed md:relative
+                top-0 left-0
+                h-full
+                w-80
+                bg-gray-950
+                border-r border-gray-700
+                flex flex-col
+                z-50 md:z-auto
+                transition-transform duration-300 ease-in-out
+                overflow-hidden
+            `}>
+                <CourseOutline
+                    topics={topicHistory}
+                    currentIndex={viewedTopicIndex}
+                    onSelect={(index) => {
+                        handleSelectTopic(index);
+                        // Close mobile overlay after selection
+                        if (window.innerWidth < 768) {
+                            setIsCourseOutlineVisible(false);
+                        }
+                    }}
+                />
+            </div>
+
+            {/* Main content - responsive width */}
+            <div className={`
+                flex-1
+                p-4 md:p-8
+                overflow-y-auto
+                transition-all duration-300
+                ${isCourseOutlineVisible ? 'md:ml-0' : 'ml-0'}
+            `}>
                  {sessionState === 'learning' ? (
                     <TopicView
                         content={currentTopicForView}
@@ -125,15 +165,24 @@ const LearningSession: React.FC<LearningSessionProps> = ({ topic, onExit }) => {
   return (
     <div className="flex flex-col h-screen bg-black text-slate-100">
       <header className="w-full bg-gray-900 p-4 flex-shrink-0 border-b border-gray-700 flex items-center justify-between">
-         <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-            {topic.title}
-        </h2>
-        <button
-            onClick={onExit}
-            className="text-gray-400 hover:text-white transition-colors text-sm font-semibold"
-        >
-            &larr; Home
-        </button>
+         <div className="flex items-center gap-4">
+           <button
+             onClick={toggleCourseOutline}
+             className="md:hidden text-gray-400 hover:text-white transition-colors text-sm font-semibold"
+             aria-label="Toggle course outline"
+           >
+             ☰
+           </button>
+           <h2 className="text-lg md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+             {topic.title}
+           </h2>
+         </div>
+         <button
+           onClick={onExit}
+           className="text-gray-400 hover:text-white transition-colors text-sm font-semibold"
+         >
+           &larr; Home
+         </button>
       </header>
       <main className="flex-1 flex flex-col overflow-hidden">
         {renderContent()}

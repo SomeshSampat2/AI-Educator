@@ -125,7 +125,6 @@ const LearningSession: React.FC<LearningSessionProps> = ({ topic, onExit }) => {
                 flex flex-col
                 z-50 md:z-auto
                 transition-transform duration-300 ease-in-out
-                overflow-hidden
             `}>
                 <CourseOutline
                     topics={topicHistory}

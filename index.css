@@ -127,6 +127,12 @@
   margin-top: 1.5rem;
 }
 
+.markdown-heading.h4 {
+  font-size: 1.125rem;
+  color: #8b5cf6;
+  margin-top: 1.25rem;
+}
+
 .markdown-list {
   margin: 1rem 0;
   padding-left: 1.5rem;
@@ -200,5 +206,9 @@
 
   .markdown-heading.h3 {
     font-size: 1.125rem;
+  }
+
+  .markdown-heading.h4 {
+    font-size: 1rem;
   }
 }

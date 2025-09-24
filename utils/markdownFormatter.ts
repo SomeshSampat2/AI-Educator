@@ -32,10 +32,11 @@ export const parseMarkdown = (markdown: string): string => {
   // Handle bold text (**text**)
   html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-  // Handle headings (### Heading, ## Heading, # Heading)
-  html = html.replace(/^### (.*$)/gm, '<h3 class="markdown-heading h3">$1</h3>');
-  html = html.replace(/^## (.*$)/gm, '<h2 class="markdown-heading h2">$1</h2>');
-  html = html.replace(/^# (.*$)/gm, '<h1 class="markdown-heading h1">$1</h1>');
+  // Handle headings (#### Heading, ### Heading, ## Heading, # Heading)
+  html = html.replace(/^#### (.*$)/gm, '<h1 class="markdown-heading h1">$1</h1>');
+  html = html.replace(/^### (.*$)/gm, '<h2 class="markdown-heading h2">$1</h2>');
+  html = html.replace(/^## (.*$)/gm, '<h3 class="markdown-heading h3">$1</h3>');
+  html = html.replace(/^# (.*$)/gm, '<h4 class="markdown-heading h4">$1</h4>');
 
   // Handle unordered lists (* item or - item)
   // First, wrap list items in <li> tags

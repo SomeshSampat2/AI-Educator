@@ -84,6 +84,14 @@ const TopicView: React.FC<TopicViewProps> = (props) => {
             <h3 className="text-xl md:text-2xl font-bold text-emerald-400 mb-4">Where to next? 🤔</h3>
             <p className="text-gray-300 mb-4 text-sm md:text-base">Click a suggestion or ask your own question to continue!</p>
             <div className="flex flex-wrap gap-2 md:gap-3 mb-6">
+                {/* Always show "next chapter" hardcoded option */}
+                <button
+                    onClick={() => onFollowUpSelect("next chapter")}
+                    className="px-3 md:px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-full hover:from-cyan-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 text-sm md:text-base font-semibold shadow-lg"
+                >
+                    📚 Next Chapter
+                </button>
+                {/* Show AI-generated suggestions */}
                 {content.followUpSuggestions.map(suggestion => (
                     <button
                         key={suggestion}

@@ -64,7 +64,7 @@ export const generateTopic = async (
         `;
 
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash-lite",
+            model: "gemini-2.5-flash-lite-preview-09-2025",
             contents: prompt,
             config: {
                 responseMimeType: "application/json",
@@ -87,7 +87,7 @@ export const generateFunFact = async (topicTitle: string): Promise<string> => {
         const prompt = `Tell me one surprising and fun fact about "${topicTitle}". Be concise and start directly with the fact. Maximum 2 sentences. Make it engaging!`;
         
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash-lite",
+            model: "gemini-2.5-flash-lite-preview-09-2025",
             contents: prompt,
             config: {
                 temperature: 0.8,
